@@ -26,7 +26,10 @@ A sleek, dark-themed password generator with a modern UI that allows users to cr
 
 ## Screenshots
 
-![Password Generator Screenshot](screenshot.png)
+![Password Generator Screenshot](https://github.com/user-attachments/assets/87a50725-0cb9-4ade-a099-bddc895a5eba)
+
+
+
 
 ## Installation
 
