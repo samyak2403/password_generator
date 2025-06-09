@@ -36,7 +36,7 @@ A sleek, dark-themed password generator with a modern UI that allows users to cr
 Simply clone this repository and open the index.html file in your browser:
 
 ```bash
-git clone https://github.com/yourusername/password-generator.git
+git clone https://github.com/samyak2403/password-generator.git
 cd password-generator
 ```
 
