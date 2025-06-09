@@ -1,3 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary: #646cff;
+  --primary-dark: #5258cc;
+  --primary-light: rgba(100, 108, 255, 0.2);
+  --bg: linear-gradient(135deg, #1d97ff 0%, #0066ff 100%);
+  --card-bg: #0f172a;
+  --input-bg: #1e293b;
+  --text: #f8fafc;
+  --text-light: #94a3b8;
+  --border: #334155;
+  --border-radius: 16px;
+  --transition: all 0.2s ease;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -5,165 +21,334 @@
 }
 
 body {
-  background-color: antiquewhite;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  padding: 1.5rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
-  background-color: white;
-  box-shadow: 0 0 10px black;
-  width: 400px;
-  border-radius: 5px;
-  border: none;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  animation: fadeIn 0.6s ease-out forwards;
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+  padding: 1.5rem;
   text-align: center;
 }
 
-.heading{
-  font-size: 1.5rem;
-  padding: 10px;
-  text-align: center;
-  background-color: blue;
-  color: white;
-
+.card-header h1 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--text);
 }
 
-
-.display{
-  margin-bottom: 5px;
+.password-display {
+  background: var(--input-bg);
+  padding: 1.5rem;
+  text-align: center;
   position: relative;
-}
-
-#pass-input{
-  border: none;
-  outline: none;
-  width: 70%;
-  padding: 10px;
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-#copy{
-  position: absolute;
-  top: 15px;
-  right: 30px;
-  font-size: 1rem;
-  background-color: blue;
-  color: white;
-  padding: 5px;
-  width: 20%;
-  font-weight: bold;
-  border-radius: 5px;
   cursor: pointer;
+  transition: var(--transition);
 }
 
+.password-display:hover {
+  background: rgba(30, 41, 59, 0.8);
+}
 
-.settings{
+.password-text {
+  font-family: 'Courier New', monospace;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text);
+  word-break: break-all;
+  margin-bottom: 0.25rem;
+}
+
+.copy-text {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  opacity: 0.8;
+}
+
+.settings-panel {
+  padding: 1.5rem;
+}
+
+.length-setting {
+  margin-bottom: 1.75rem;
+}
+
+.setting-label {
+  margin-bottom: 0.75rem;
   display: flex;
   justify-content: space-between;
-  font-size: large;
-  font-weight: bold;
-  padding: 0 15px 7.5px 15px;
-
+  align-items: center;
 }
 
+.setting-label label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
 
+.range-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
 
+.range-min, .range-max {
+  font-size: 0.875rem;
+  color: var(--text-light);
+  font-weight: 500;
+}
 
-#generate{
-  display: block;
-  width: 100%;
-  background-color: blue;
-  color: white;
-  font-size: 1.5rem;
-  padding: 7px;
-  border: none;
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  flex: 1;
+  background: var(--border);
+  border-radius: 2px;
   outline: none;
-  border-radius: 5px;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+}
+
+.settings-header {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-light);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.setting-group {
+  margin-bottom: 1.75rem;
+}
+
+.setting {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.setting:last-child {
+  border-bottom: none;
+}
+
+.setting label {
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+/* Radio Button Styling */
+.radio-button {
+  position: relative;
+  display: inline-block;
+  width: 22px;
+  height: 22px;
   cursor: pointer;
 }
 
-/* 
-@media (max-width: 600px) {
-  .container {
-    width: 90%; 
-    margin: 10px;
-  }
+.radio-button input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
 
-  .heading {
-    font-size: 1.2rem;
-    padding: 8px;
-  }
+.radio-btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 22px;
+  width: 22px;
+  background-color: #2a374b;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
 
-  #pass-input {
-    width: 60%;
-    font-size: 1.2rem;
-    padding: 8px;
-  }
+.radio-button:hover .radio-btn {
+  background-color: #3a4a63;
+}
 
-  #copy {
-    top: 12px;
-    right: 20px;
-    width: 30%;
-    font-size: 0.9rem;
-    padding: 4px;
-  }
+.radio-btn:after {
+  content: '';
+  position: absolute;
+  display: none;
+  top: 6px;
+  left: 6px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0 0 5px rgba(100, 108, 255, 0.5);
+}
 
-  .settings {
-    flex-direction: column;
-    align-items: flex-start;
-    font-size: 1rem;
-    padding: 0 10px 10px 10px;
-    gap: 5px;
-  }
+.radio-button input:checked ~ .radio-btn {
+  background-color: #2a374b;
+  box-shadow: 0 0 0 2px rgba(100, 108, 255, 0.5);
+}
 
-  #generate {
-    font-size: 1.2rem;
-    padding: 6px;
-  }
-} 
- */
+.radio-button input:checked ~ .radio-btn:after {
+  display: block;
+  animation: radioAnim 0.3s ease-out;
+}
 
+@keyframes radioAnim {
+  from { transform: scale(0); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
 
- @media (max-width: 200px) {
-  .container {
+.radio-button input:focus ~ .radio-btn {
+  box-shadow: 0 0 0 2px rgba(100, 108, 255, 0.5);
+}
+
+.generate-btn {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.generate-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.generate-btn:active {
+  transform: translateY(0);
+}
+
+/* Toast Notification */
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: rgba(15, 23, 42, 0.9);
+  color: white;
+  padding: 0.9rem 1.75rem;
+  border-radius: 8px;
+  font-weight: 500;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.8);
+  pointer-events: none;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Media queries */
+@media (max-width: 480px) {
+  .card {
     width: 100%;
-    max-width: 200px;
-    margin: 5px;
-    padding: 5px;
+    max-width: 100%;
   }
+  
+  .password-text {
+    font-size: 1.1rem;
+  }
+  
+  .settings-panel {
+    padding: 1.25rem;
+  }
+}
 
-  .heading {
-    font-size: 0.9rem;
-    padding: 4px;
-  }
+/* Add styles for password strength indicators */
+.password-text.weak {
+  color: #ef4444;
+  text-shadow: 0 0 5px rgba(239, 68, 68, 0.3);
+}
 
-  #pass-input {
-    width: 50%;
-    font-size: 0.9rem;
-    padding: 4px;
-  }
+.password-text.medium {
+  color: #f59e0b;
+  text-shadow: 0 0 5px rgba(245, 158, 11, 0.3);
+}
 
-  #copy {
-    top: 8px;
-    right: 4px;
-    width: 45%;
-    font-size: 0.65rem;
-    padding: 3px;
-  }
+.password-text.strong {
+  color: #10b981;
+  text-shadow: 0 0 5px rgba(16, 185, 129, 0.3);
+}
 
-  .settings {
-    flex-direction: column;
-    align-items: flex-start;
-    font-size: 0.85rem;
-    padding: 5px;
-    gap: 4px;
-  }
+/* Add copy animation */
+.password-display.copied {
+  background: rgba(16, 185, 129, 0.2);
+  transition: background 0.3s ease;
+}
 
-  #generate {
-    font-size: 0.9rem;
-    padding: 4px;
-  }
+.password-display.copied .copy-text {
+  color: #10b981;
+  font-weight: 500;
+}
+
+@keyframes copied {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+.password-display.copied .password-text {
+  animation: copied 0.5s ease;
 }
