@@ -67,6 +67,6 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## Contact
 
-Your Name - [@yourtwitter](https://twitter.com/yourtwitter) - youremail@example.com
+Your Name - [@samyak](https://github.com/samyak2403)
 
-Project Link: [https://github.com/yourusername/password-generator](https://github.com/yourusername/password-generator)
+Project Link: [https://github.com/samyak2403/password-generator](https://github.com/yourusername/password-generator)
